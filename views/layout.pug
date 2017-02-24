@@ -9,4 +9,10 @@ html
   body
     block content
 
-    div= menuItems
+    +javascript_script("models/item")
+    +javascript_script("collections/items", "cart")
+    +javascript_script("views/items", "item", "cart", "checkout")
+    +javascript_script("app", "router")
+
+  script.
+    App.items = new Items(!{JSON.stringify(menuItems)});

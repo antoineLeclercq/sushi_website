@@ -4,4 +4,6 @@ mixin link_stylesheet(file_name)
 mixin javascript_script(file_name, ...additional_files)
   script(src="javascripts/" + file_name + ".js")
   each file in additional_files
-    script(src="javascripts/" + file + ".js")
+    - var path = file_name.match(/(.+\/)?.+$/).pop();
+    - path = path ? path : '';
+    script(src="javascripts/" + path + file + ".js")
