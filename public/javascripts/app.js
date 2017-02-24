@@ -11,3 +11,7 @@ App = {
 Handlebars.registerHelper('format_price', function (price) {
   return Number(price).toFixed(2);
 });
+
+Handlebars.registerHelper('convert_to_kcal', function (energy) {
+  return Number(energy) * 0.239006;
+});

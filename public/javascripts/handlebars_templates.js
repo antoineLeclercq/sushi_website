@@ -1,5 +1,37 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["item"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<tr>\n<td>Protein</td>\n<td>"
+    + alias4(((helper = (helper = helpers.protein || (depth0 != null ? depth0.protein : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"protein","hash":{},"data":data}) : helper)))
+    + "</td>\n</tr>\n<tr>\n<td>Fat</td>\n<td>"
+    + alias4(((helper = (helper = helpers.fat || (depth0 != null ? depth0.fat : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fat","hash":{},"data":data}) : helper)))
+    + "</td>\n</tr>\n<tr>\n<td>Carbohydrate</td>\n<td>"
+    + alias4(((helper = (helper = helpers.carbohydrate || (depth0 != null ? depth0.carbohydrate : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"carbohydrate","hash":{},"data":data}) : helper)))
+    + "</td>\n</tr>\n<tr>\n<td>Energy (kj)</td>\n<td>"
+    + alias4(((helper = (helper = helpers.energy || (depth0 != null ? depth0.energy : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"energy","hash":{},"data":data}) : helper)))
+    + "</td>\n</tr>\n<tr>\n<td>Energy (kcal)</td>\n<td>"
+    + alias4((helpers.convert_to_kcal || (depth0 && depth0.convert_to_kcal) || alias2).call(alias1,(depth0 != null ? depth0.energy : depth0),{"name":"convert_to_kcal","hash":{},"data":data}))
+    + "</td>\n</tr>\n<tr>\n<td>Sugar</td>\n<td>"
+    + alias4(((helper = (helper = helpers.sugar || (depth0 != null ? depth0.sugar : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sugar","hash":{},"data":data}) : helper)))
+    + "</td>\n</tr>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<figure>\n<img src=\"images/"
+    + alias4(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"image","hash":{},"data":data}) : helper)))
+    + "\">\n</figure>\n<h1>"
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</h1>\n<p>"
+    + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</p>\n<footer>\n<h2>$"
+    + alias4((helpers.format_price || (depth0 && depth0.format_price) || alias2).call(alias1,(depth0 != null ? depth0.price : depth0),{"name":"format_price","hash":{},"data":data}))
+    + "</h2>\n<a href=\"#\">Add to cart</a>\n</footer>\n<aside>\n<h3>Nutritional Information</h3>\n<table>\n<tbody>\n"
+    + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.stats : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</tobdy>\n</table>\n</aside>\n";
+},"useData":true});
+
 this["JST"]["items"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
@@ -7,9 +39,9 @@ this["JST"]["items"] = Handlebars.template({"1":function(container,depth0,helper
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n<article>\n<header>\n<figure>\n<img src=\"images/"
     + alias4(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"image","hash":{},"data":data}) : helper)))
-    + "\">\n</figure>\n</header>\n<p class=\"name\">"
+    + "\">\n</figure>\n</header>\n<h2 class=\"name\">"
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
-    + "</p>\n<p class=\"price\">$"
+    + "</h2>\n<p class=\"price\">$"
     + alias4((helpers.format_price || (depth0 && depth0.format_price) || alias2).call(alias1,(depth0 != null ? depth0.price : depth0),{"name":"format_price","hash":{},"data":data}))
     + "</p>\n<footer>\n<a class=\"add_cart\">Add to cart</a>\n</footer>\n</article>\n</li>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
