@@ -15,6 +15,13 @@
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-bower-concat": "^1.0.0",
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt-contrib-uglify": "^2.1.0",
+    "nib": "^1.1.2",
+    "nodemon": "^1.11.0",
+    "stylus": "^0.54.5"
   }
 }
