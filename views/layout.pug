@@ -6,13 +6,18 @@ html
     title Sushi Restaurant Website
     +link_stylesheet("styles")
     +javascript_script("vendor/all")
+    +javascript_script("handlebars_templates")
   body
-    block content
+    header
+    main
+      ul#items
 
+    +javascript_script("app")
     +javascript_script("models/item")
     +javascript_script("collections/items", "cart")
     +javascript_script("views/items", "item", "cart", "checkout")
-    +javascript_script("app", "router")
+    +javascript_script("router")
 
   script.
     App.items = new Items(!{JSON.stringify(menuItems)});
+    App.init();

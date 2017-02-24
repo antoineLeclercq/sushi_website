@@ -1,0 +1,16 @@
+{{#each items}}
+  <li data-id="{{id}}">
+    <article>
+      <header>
+        <figure>
+          <img src="images/{{image}}">
+        </figure>
+      </header>
+      <p class="name">{{name}}</p>
+      <p class="price">${{format_price price}}</p>
+      <footer>
+        <a class="add_cart">Add to cart</a>
+      </footer>
+    </article>
+  </li>
+{{/each}}
