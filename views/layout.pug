@@ -1,7 +1,12 @@
+include _mixins.pug
+
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Sushi Restaurant Website
+    +link_stylesheet("styles")
+    +javascript_script("vendor/all")
   body
     block content
+
+    div= menuItems

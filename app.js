@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nib = require('nib');
+var stylus = require('stylus');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var menuItems = require('./routes/menu_items');
 
 var app = express();
 
@@ -16,14 +17,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(stylus.middleware({
-  src: path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'public/stylesheets'),
   compile: function (str, p) {
     return stylus(str).set('filename', p).use(nib());
   },
 }));
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', menuItems);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
