@@ -9,7 +9,15 @@ html
     +javascript_script("handlebars_templates")
   body
     header
+      .logo
+      .cart
+        a(href="#")
+          span.left Shopping Cart
+          span.right.
+            #[span.count 0]
+            items
     main
+      #cart
       ul#items
       #item_details
 
