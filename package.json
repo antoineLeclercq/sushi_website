@@ -14,7 +14,9 @@
     "morgan": "~1.7.0",
     "pug": "~2.0.0-beta10",
     "serve-favicon": "~2.3.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "bower": "^1.8.0",
@@ -23,10 +25,8 @@
     "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-uglify": "^2.1.0",
     "jasmine-node": "^1.14.5",
-    "nib": "^1.1.2",
     "nodemon": "^1.11.0",
-    "request": "^2.79.0",
-    "stylus": "^0.54.5"
+    "request": "^2.79.0"
   },
   "engines": {
     "node": "5.7.0"
