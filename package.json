@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "test": "jasmine-node spec --autotest --color --watch ."
   },
   "dependencies": {
@@ -27,5 +27,8 @@
     "nodemon": "^1.11.0",
     "request": "^2.79.0",
     "stylus": "^0.54.5"
+  }
+  "engines": {
+    "node": "5.7.0"
   }
 }
