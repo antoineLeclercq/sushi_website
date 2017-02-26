@@ -4,12 +4,15 @@ doctype html
 html
   head
     title Sushi Restaurant Website
+    +link_stylesheet("font-awesome-4.7.0/css/font-awesome.min")
     +link_stylesheet("styles")
     +javascript_script("vendor/all")
     +javascript_script("handlebars_templates")
   body
     header
-      .logo
+      figure.logo
+        a(href="#")
+          img(src="images/logo.png")
       .cart
         a(href="#")
           span.left Shopping Cart
@@ -20,6 +23,11 @@ html
       #cart
       ul#items
       #item_details
+      #checkout
+
+    footer
+
+    block content
 
     +javascript_script("app")
     +javascript_script("models/item")

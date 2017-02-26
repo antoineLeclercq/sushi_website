@@ -3,11 +3,14 @@ var CartView = Backbone.View.extend({
   template: App.templates.cart,
   events: {
     'click .empty_cart': 'emptyAndHide',
+    'click .checkout': 'renderCheckout',
   },
-  emptyAndHide: function () {
-    this.collection.reset();
+  emptyAndHide: function (e) {
+    e.preventDefault();
+
     this.$el.slideUp(300);
     this.updateItemsCount();
+    this.collection.trigger('empty_cart');
   },
   render: function () {
     this.$el.html(this.template({ items: this.collection.toJSON() }));
@@ -25,6 +28,13 @@ var CartView = Backbone.View.extend({
   },
   isEmpty: function () {
     return !this.collection.length;
+  },
+  renderCheckout: function (e) {
+    e.preventDefault();
+
+    this.$el.hide();
+    $('#items').hide();
+    new CheckoutView({ collection: this.collection });
   },
   initialize: function () {
     this.$el.hide();

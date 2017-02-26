@@ -1,0 +1,62 @@
+colors = {
+  button: #ff3170
+  buttonGradient: linear-gradient(to bottom, rgba(214,0,65,1) 0%, rgba(169,0,64,1) 100%)
+  hoverButtonGradient: linear-gradient(to bottom, rgba(169,0,64,1) 0%, rgba(214,0,65,1) 100%)
+  info: #b0b0b0
+  name: #ab7829
+  bg: #1f1f1f
+  buttonRed: #d60041
+  infoDarker: #787878
+}
+
+double_buttons(col)
+  display: inline-block
+  box-sizing: border-box
+  font-size: 10px
+  &.left
+    width: 40%
+    color: colors.button
+    text-transform: uppercase
+  &.right
+    width: 60%
+    gradientButton()
+    triangle_border(col)
+
+gradientButton()
+  color: white
+  position: relative
+  padding: 7px 15px 7px 10px
+  background: colors.buttonGradient
+  text-transform: uppercase
+  &:hover
+    background: colors.hoverButtonGradient
+
+triangle_border(colorBorder)
+  &:before
+    content: ""
+    display: block
+    width: 0
+    height: 0
+    position: absolute
+    left: 0
+    top: 0
+    border-top: 14px solid colorBorder
+    border-right: 14px solid transparent
+    border-bottom: 14px solid transparent
+    border-left: 14px solid colorBorder
+
+addToCartSign()
+  &:before
+    content: "+"
+    margin: 0 5px 0 0
+    display: inline-block
+    font-size: 14px
+    font-weight: bold
+
+buttonTransitionHover(colorFont, bgColor, speed)
+  color: colorFont
+  background: bgColor
+  transition: color speed, background speed
+
+sushiBackground()
+  background: url("/images/sushi-preview.png")
