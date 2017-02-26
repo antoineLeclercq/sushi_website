@@ -15,11 +15,11 @@ describe('/menu_items.json', function () {
   });
 });
 
-describe('menu/:id', function () {
+describe('menu/:id.json', function () {
   it('sends the menu item with the id sent as param', function (done) {
     var id = 1;
 
-    request(root + '/menu/' + id, function (error, response, body) {
+    request(root + '/menu/' + id + '/json', function (error, response, body) {
       var item = JSON.parse(body);
 
       expect(item.name).toBeDefined();

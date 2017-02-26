@@ -1,7 +1,11 @@
 var CheckoutView = Backbone.View.extend({
-  el: $('#checkout').get(0),
+  attributes: {
+    id: 'checkout',
+  },
   events: {
     'click .fa': 'updateQuantity',
+    'click footer a': 'reset',
+    'submit footer form': 'reset',
   },
   template: App.templates.checkout,
   updateQuantity: function (e) {
@@ -19,9 +23,13 @@ var CheckoutView = Backbone.View.extend({
     this.collection.trigger('update_quantity', { id: id, quantity: newQuantity });
     this.render();
   },
+  reset: function () {
+    this.collection.trigger('empty_cart');
+  },
   render: function () {
     this.$el.html(this.template({ items: this.collection.toJSON() }));
-    this.$el.show();
+    App.$el.html(this.$el);
+    this.delegateEvents();
   },
   initialize: function () {
     this.render();

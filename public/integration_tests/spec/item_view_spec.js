@@ -2,7 +2,7 @@ describe('Item View', function () {
   beforeEach(function () {
     this.item = new Item(itemsScaffold[0]);
     this.view = new ItemView({ model: this.item });
-    $('<div id="item_details">').css('display', 'none').appendTo(document.body);
+    this.view.render();
   });
 
   afterEach(function () {

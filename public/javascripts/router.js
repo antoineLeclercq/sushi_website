@@ -2,7 +2,7 @@ var Router = Backbone.Router.extend({
   routes: {
     'menu': 'menuView',
     'menu/:id': 'itemView',
-    'checkout': App.checkoutView,
+    'checkout': 'checkoutView',
   },
   itemView: function (id) {
     App.itemView(id);
@@ -10,6 +10,9 @@ var Router = Backbone.Router.extend({
   menuView: function () {
     App.menuView();
     this.navigate('menu');
+  },
+  checkoutView: function () {
+    App.checkoutView();
   },
   initialize: function () {
     this.route(/^\/?$/, 'menu', this.menuView);
@@ -24,4 +27,10 @@ $(document).on('click', 'a[href^="/"]', function (e) {
   e.preventDefault();
 
   router.navigate($(e.currentTarget).attr('href').replace(/^\//, ''), { trigger: true });
+});
+
+$(document).on('submit', 'form', function (e) {
+  e.preventDefault();
+
+  router.navigate($(e.currentTarget).attr('action').replace(/^\//, ''), { trigger: true });
 });

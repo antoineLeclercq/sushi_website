@@ -9,6 +9,7 @@ var stylus = require('stylus');
 
 var menu = require('./routes/menu');
 var menuItem = require('./routes/menu_item');
+var checkout = require('./routes/checkout');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', menu);
 app.use('/', menuItem);
+app.use('/', checkout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

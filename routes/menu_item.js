@@ -7,6 +7,10 @@ router.get('/menu_items.json', function(req, res, next) {
   res.send(Menu.get());
 });
 
+router.get('/menu/:id/json', function(req, res, next) {
+  res.send(Menu.getItem(req.params.id));
+});
+
 router.get('/menu/:id', function(req, res, next) {
   res.render('menu_item', {
     menuItems: Menu.get(),

@@ -1,6 +1,5 @@
 describe('Cart View', function () {
   beforeEach(function () {
-    $('<div id="items">').appendTo(document.body);
     this.items = new Items(itemsScaffold);
     this.cart = new Cart();
     this.view = new CartView({ collection: this.cart });

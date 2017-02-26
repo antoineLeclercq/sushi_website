@@ -13,7 +13,8 @@ App = {
     new ItemsView({ collection: this.items });
   },
   checkoutView: function () {
-
+    $('#cart').hide();
+    new CheckoutView({ collection: this.cart });
   },
   renderCart: function () {
     this.cartView.render();
@@ -27,7 +28,6 @@ App = {
 };
 
 $(window).on('unload', App.updateStorage.bind(App));
-
 
 Handlebars.registerHelper('format_price', function (price) {
   return Number(price).toFixed(2);

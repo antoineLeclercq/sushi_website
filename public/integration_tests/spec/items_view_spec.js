@@ -2,7 +2,6 @@ describe('Items view', function () {
   beforeEach(function () {
     this.items = new Items(itemsScaffold);
     this.view = new ItemsView({ collection: this.items });
-    $('<div id="items">').css('display', 'none').appendTo(document.body);
   });
 
   afterEach(function () {

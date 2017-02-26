@@ -6,8 +6,6 @@ var CartView = Backbone.View.extend({
     'click .checkout': 'renderCheckout',
   },
   emptyAndHide: function (e) {
-    e.preventDefault();
-
     this.$el.slideUp(300, function () {
       this.$el.empty();
     }.bind(this));
@@ -16,32 +14,26 @@ var CartView = Backbone.View.extend({
     this.updateItemsCount();
   },
   render: function () {
-    if (this.isEmpty()) {
+    if (this.isEmpty() || this.$el.next().find('#checkout').length) {
       this.$el.hide();
-      return;
-    }
-
-    if (this.$el.children().length === 0) {
-      this.$el.slideDown(300);
+      this.$el.html(this.template({ items: this.collection.toJSON() }));
+      this.updateItemsCount();
     } else {
-      this.$el.show();
+      if (this.$el.find('ul').children().length === 0) {
+        this.$el.slideDown(300);
+      } else {
+        this.$el.show();
+      }
+      
+      this.$el.html(this.template({ items: this.collection.toJSON() }));
+      this.updateItemsCount();
     }
-
-    this.$el.html(this.template({ items: this.collection.toJSON() }));
-
-    this.updateItemsCount();
   },
   updateItemsCount: function () {
     $('body > header .count').text(this.collection.length);
   },
   isEmpty: function () {
     return this.collection.length === 0;
-  },
-  renderCheckout: function (e) {
-    e.preventDefault();
-
-    this.$el.hide();
-    new CheckoutView({ collection: this.collection });
   },
   initialize: function () {
     this.render();
