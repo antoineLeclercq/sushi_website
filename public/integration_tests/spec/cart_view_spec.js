@@ -28,7 +28,7 @@ describe('Cart View', function () {
     expect($temp.find('.count').text()).toEqual('2');
 
     $temp.remove();
-  })
+  });
 
   it('computes the total price of the cart', function () {
     this.items.each(function (item) {

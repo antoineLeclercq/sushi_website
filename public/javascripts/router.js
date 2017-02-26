@@ -21,7 +21,7 @@ var Router = Backbone.Router.extend({
 
 var router = new Router();
 
-Backbone.history.start({pushState: true})
+Backbone.history.start({pushState: true});
 
 $(document).on('click', 'a[href^="/"]', function (e) {
   e.preventDefault();

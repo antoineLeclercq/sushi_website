@@ -17,5 +17,5 @@ describe('Item View', function () {
   it('renders the item attributes', function () {
     expect(this.view.$el.find('h1').text()).toBe(this.item.get('name'));
     expect(this.view.$el.find('tr').length).toBe(_.keys(this.item.get('stats')).length + 1);
-  })
+  });
 });

@@ -15,5 +15,5 @@ describe('Items view', function () {
 
   it('renders the items in the collection', function () {
     expect(this.view.$el.find('li').length).toBe(this.items.length);
-  })
+  });
 });
