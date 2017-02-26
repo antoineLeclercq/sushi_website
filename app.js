@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var nib = require('nib');
 var stylus = require('stylus');
 
-var index = require('./routes/index');
-var menuItems = require('./routes/menu_items');
+var menu = require('./routes/menu');
+var menuItem = require('./routes/menu_item');
 
 var app = express();
 
@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/', menuItems);
+app.use('/', menu);
+app.use('/', menuItem);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

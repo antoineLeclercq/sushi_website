@@ -10,20 +10,22 @@ html
     +javascript_script("handlebars_templates")
   body
     header
-      figure.logo
-        a(href="#")
-          img(src="images/logo.png")
+      a.logo(href="/")
+        img(src="/images/logo.png")
       .cart
-        a(href="#")
+        a(href="/")
           span.left Shopping Cart
           span.right.
             #[span.count 0]
             items
     main
       #cart
-      ul#items
-      #item_details
-      #checkout
+      #content
+
+      //- #cart
+      //- ul#items
+      //- #item_details
+      //- #checkout
 
     footer
 
@@ -33,8 +35,10 @@ html
     +javascript_script("models/item")
     +javascript_script("collections/items", "cart")
     +javascript_script("views/items", "item", "cart", "checkout")
-    +javascript_script("router")
 
-  script.
-    App.items = new Items(!{JSON.stringify(menuItems)});
-    App.init();
+    script.
+      App.items = new Items(!{JSON.stringify(menuItems)});
+      App.cart = new Cart(App.readStorage());
+      App.cartView = new CartView({ collection: App.cart });
+
+    +javascript_script("router")

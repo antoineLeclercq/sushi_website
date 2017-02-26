@@ -8,9 +8,9 @@ router.get('/menu_items.json', function(req, res, next) {
 });
 
 router.get('/menu/:id', function(req, res, next) {
-  var menu_item = Menu.getItem(req.params.id);
-
-  res.send(menu_item);
+  res.render('menu_item', {
+    menuItems: Menu.get(),
+  });
 });
 
 module.exports = router;
