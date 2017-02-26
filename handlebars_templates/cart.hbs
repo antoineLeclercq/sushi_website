@@ -2,7 +2,7 @@
   {{#each items}}
   <li data-id="{{id}}">
     <figure>
-      <img src="images/{{image}}">
+      <img src="/images/{{image}}">
     </figure>
     <p>{{quantity}} x ${{format_price price}}</p>
   </li>
@@ -13,6 +13,6 @@
   <p class="total">${{total items}}<p>
   <footer>
     <a class="left empty_cart" href="#">Empty cart</a><!--
-    --><a class="right checkout" href="#">Checkout</a>
+    --><a class="right checkout" href="/checkout">Checkout</a>
   </footer>
 </section>

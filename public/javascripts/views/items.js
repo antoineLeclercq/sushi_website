@@ -1,5 +1,8 @@
 var ItemsView = Backbone.View.extend({
-  el: $('#items').get(0),
+  tagName: 'ul',
+  attributes: {
+    id: 'items'
+  },
   template: App.templates.items,
   events: {
     'click header': 'displayDetails',
@@ -8,8 +11,9 @@ var ItemsView = Backbone.View.extend({
   displayDetails: function (e) {
     var id = $(e.target).closest('li').attr('data-id');
 
-    this.$el.hide();
+    router.navigate('menu/' + id, { trigger: true });
     new ItemView({ model: this.collection.get(id)} );
+    this.remove();
   },
   addToCart: function (e) {
     e.preventDefault();
@@ -17,14 +21,11 @@ var ItemsView = Backbone.View.extend({
 
     App.cart.addItem(this.collection.get(id));
   },
-  display: function () {
-    this.$el.show();
-  },
   render: function () {
     this.$el.html(this.template({ items: this.collection.toJSON() }));
+    App.$el.html(this.$el);
   },
   initialize: function () {
     this.render();
-    this.on('display', this.display);
   }
 });

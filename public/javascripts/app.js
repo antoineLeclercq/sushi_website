@@ -1,17 +1,22 @@
 App = {
+  $el: $('#content'),
   templates: JST,
-  init: function () {
+  menuView: function () {
     this.renderItems();
     this.renderCart();
-
-    $(window).on('unload', this.updateStorage.bind(this));
+  },
+  itemView: function (id) {
+    this.renderCart();
+    (new ItemView({ model: this.items.get(id) })).render();
   },
   renderItems: function () {
-    this.itemsView = new ItemsView({ collection: this.items });
+    new ItemsView({ collection: this.items });
+  },
+  checkoutView: function () {
+
   },
   renderCart: function () {
-    App.cart = new Cart(this.readStorage());
-    App.cartView = new CartView({ collection: App.cart });
+    this.cartView.render();
   },
   readStorage: function () {
     return JSON.parse(localStorage.getItem('cartItems'));
@@ -20,6 +25,9 @@ App = {
     localStorage.setItem('cartItems', JSON.stringify(this.cart.toJSON()));
   },
 };
+
+$(window).on('unload', App.updateStorage.bind(App));
+
 
 Handlebars.registerHelper('format_price', function (price) {
   return Number(price).toFixed(2);
