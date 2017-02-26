@@ -24,7 +24,7 @@ var CartView = Backbone.View.extend({
       } else {
         this.$el.show();
       }
-      
+
       this.$el.html(this.template({ items: this.collection.toJSON() }));
       this.updateItemsCount();
     }
